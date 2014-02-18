@@ -35,11 +35,19 @@ describe List do
     it "adds a new task to list" do
       list.add_task(Task.new("potatos")).length.should eq 4
     end
+
+    it "add_task takes a single argument" do
+      expect { list.add_task }.to raise_error(ArgumentError)
+    end
   end
 
   describe "#complete_task" do
     it "returns the correct tasks from the list" do
       list.complete_task(2).should eq true
+    end
+
+    it "complete_task takes a single argument" do
+      expect { list.complete_task }.to raise_error(ArgumentError)
     end
   end
 
@@ -47,6 +55,10 @@ describe List do
     it "should return 1 less task in list" do
       list.delete_task(2)
       list.tasks.length.should eq 2
+    end
+
+    it "delete_task takes a single argument" do
+      expect { list.delete_task }.to raise_error(ArgumentError)
     end
   end
 
